@@ -1,33 +1,32 @@
-def goto(linenum):
-    global line
-    line = linenum
+def mincostreduce(values,j):
 
-def mincostreduce(values):
     data = {}
     temp = []
 
     for val in values:
-        print("In first one")
         for i in values[1:]:
             data.update({str(val) + str(i): val + i})
 
         minkey = min(data, key=data.get)
 
         results = [int(i) for i in list(str(minkey))]
-        for k in results:
-            values.remove(k)
 
+        for k in results:
+            print(results)
+            values.remove(k)
+            
+    print(results)
     values.insert(0,data[minkey])
-    temp.append(data[minkey])
+
+    j= data[minkey]+j
+
+    print(j)
 
     if len(values) != 1:
-        total = sum(temp)
-        mincostreduce(values)
+        mincostreduce(values,j)
 
-    else:
-        return 0
 
 if __name__ == "__main__":
-    values = [1, 2, 3]
+    values = [1, 2, 3, 4]
 
-    print(mincostreduce(values))
+    print(mincostreduce(values,0))
