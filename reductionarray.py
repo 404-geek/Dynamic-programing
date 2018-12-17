@@ -1,32 +1,27 @@
-def mincostreduce(values,j):
+reduce=0
+def mincostreduce(values, j):
+    global reduce
 
-    data = {}
-    temp = []
+    rem = min(values[1:])
+    tem = values[0] + rem
 
-    for val in values:
-        for i in values[1:]:
-            data.update({str(val) + str(i): val + i})
+    values.remove(values[0])
+    values.remove(rem)
 
-        minkey = min(data, key=data.get)
+    values.insert(0,tem)
+    result = j+tem
 
-        results = [int(i) for i in list(str(minkey))]
-
-        for k in results:
-            print(results)
-            values.remove(k)
-            
-    print(results)
-    values.insert(0,data[minkey])
-
-    j= data[minkey]+j
-
-    print(j)
+    reduce = result
 
     if len(values) != 1:
-        mincostreduce(values,j)
+        mincostreduce(1*values,result)
+
+    return reduce
+
+
 
 
 if __name__ == "__main__":
-    values = [1, 2, 3, 4]
+    values = []
 
-    print(mincostreduce(values,0))
+    print(mincostreduce(values, 0))
