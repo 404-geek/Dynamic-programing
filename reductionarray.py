@@ -14,7 +14,7 @@ def mincostreduce(values, j):
     reduce = result
 
     if len(values) != 1:
-        mincostreduce(1*values,result)
+        mincostreduce(values,result)
 
     return reduce
 
@@ -22,6 +22,6 @@ def mincostreduce(values, j):
 
 
 if __name__ == "__main__":
-    values = []
+    values = [9,7,6,5]
 
     print(mincostreduce(values, 0))
