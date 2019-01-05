@@ -1,27 +1,25 @@
-arr = []
+import math
+
+inp = int(input())
+position = 0
 
 
-def maximum(num, swapval, maxi):
-    global h
-    global arr
+def floor_log(num, base):
+    if num < 0:
+        raise ValueError("Non-negative number only.")
 
-    if (swapval == 0):
-        h = ''.join(str(e) for e in arr + num)
-        print(h)
+    if num == 0:
         return 0
 
-    a = num.index(maxi)
-
-    if num.index(maxi) <= swapval:
-        num.remove(maxi)
-        arr.append(maxi)
-        maximum(num, swapval - a, max(num))
+    return base ** int(math.log(num, base))
 
 
-st = input()
+def killer(a):
+    if a == 1:
+        return 1
+    else:
+        temp = floor_log(a, 2)
+        return 2 * (a - temp) + 1
 
-num = list(map(int, st.split(" ")[0]))
-swapval = int(st.split(" ")[1])
-maxi = max(num)
 
-maximum(num, swapval, maxi)
+print(killer(inp))
