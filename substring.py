@@ -9,8 +9,8 @@ def get(s, pat):
         if need[s[right]] > 0:
             missing -= 1
         need[s[right]]  -= 1
-        print(need)
-        print(right)
+        # print(need)
+        # print(right)
         right+=1
 
         while missing == 0:
@@ -22,8 +22,6 @@ def get(s, pat):
             left+=1
 
     return s[i:j]
-
-
 
 
 print(get("this is a test string","tist"))
